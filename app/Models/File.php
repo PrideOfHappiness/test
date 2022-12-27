@@ -14,10 +14,21 @@ class File extends Model
     protected $fillable = [
         'id_merek',
         'nama',
-        'mesin',
+        'id_mesin',
         'id_plat',
         'namaFile',
     ];
 
+    public function merek(){
+        return $this->belongsTo(Merek::class, "id_merek");
+    }
+
+    public function mesin(){
+        return $this->belongsTo(Mesin::class, "id_mesin");
+    }
+
+    public function plat_nomor(){
+        return $this->belongsTo(PlatNomor::class, "id_plat");
+    }
 
 }

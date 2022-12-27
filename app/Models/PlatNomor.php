@@ -17,7 +17,7 @@ class PlatNomor extends Model
         'namaFile',
     ];
 
-    public function plat_nomor(){
-        return $this-hasMany(File::class, "id_plat");
+    public function id_plat(){
+        return $this->hasMany(File::class, "id_plat");
     }
 }

@@ -14,7 +14,7 @@ use Illuminate\Http\Response;
 class PlatNomorController extends Controller
 {
     public function index(){
-        $plat_nomor = PlatNomor::orderBy('nama_negara', 'asc')->paginate(10);
+        $plat_nomor = PlatNomor::orderBy('kode_negara', 'asc')->paginate(10);
         return view('platNomor.index', compact('plat_nomor'));
     }
 

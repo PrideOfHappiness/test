@@ -9,7 +9,7 @@ use Illuminate\Http\Response;
 class MerekController extends Controller
 {
     public function index(){
-        $merek = Merek::orderBy('merek', 'asc')->paginate(20);
+        $merek = Merek::orderBy('nama_merek', 'asc')->paginate(10);
         return view('merek.index', compact('merek'));
     }
 
@@ -19,17 +19,17 @@ class MerekController extends Controller
 
     public function store(Request $request){
         $this->validate($request, [
-            'merek' => 'required',
+            'nama_merek' => 'required',
             'negara_asal' => 'required',
         ]);
 
         $merek = Merek::create([
-            'merek' => $request->merek,
+            'nama_merek' => $request->nama_merek,
             'negara_asal' => $request->negara_asal,
         ]);
 
         return redirect()->route('merek.index')
-            ->with('success', 'Merek ' . $merek['merek'] . ' Berhasil Ditambahkan! ');
+            ->with('success', 'Merek ' . $merek['nama_merek'] . ' Berhasil Ditambahkan! ');
     }
 
 

@@ -17,13 +17,14 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('id_merek')->unsigned();
             $table->string('nama');
-            $table->string('mesin');
+            $table->bigInteger('id_mesin')->unsigned();
             $table->bigInteger('id_plat')->unsigned();
             $table->string('namaFile');
             $table->timestamps();
 
             $table->foreign('id_merek')->references('id')->on('merek');
             $table->foreign('id_plat')->references('id')->on('plat_nomors');
+            $table->foreign('id_mesin')->references('id')->on('mesin');
         });
     }
 

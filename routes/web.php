@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginAuthController;
 use App\Http\Controllers\MerekController;
 use App\Http\Controllers\PlatNomorController;
+use App\Http\Controllers\MesinController;
+use App\Http\Controllers\FileController;
+use App\Http\Controllers\KomparasiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +36,9 @@ Route::resource('merek', MerekController::class);
 
 //Plat Nomor
 Route::resource('plat_nomor', PlatNomorController::class);
+
+//Mesin
+Route::resource('mesin', MesinController::class);
+
+//File
+Route::resource('mobil', FileController::class);
