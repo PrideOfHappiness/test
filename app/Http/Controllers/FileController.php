@@ -55,4 +55,13 @@ class FileController extends Controller
         return redirect()->route('mobil.index')
             ->with('success', 'Data Mobil Berhasil Ditambah!');
     }
+
+    public function show($id){
+        $file = File::find($id);
+        $merek = Merek::with('id_merek')->select(['id', 'nama_merek'])->get();
+        $bahan_bakar = Mesin::with('id_mesin')->select(['id', 'nama_mesin'])->get();
+        $plat_nomor = PlatNomor::with('id_plat')->select(['id', 'nama_negara', 'namaFile'])->get();
+        return view('File.show')->with('file', $file)->with('merek', $merek)
+            ->with('bahanbakar', $bahan_bakar)->with('platNomor', $plat_nomor);
+    }
 }

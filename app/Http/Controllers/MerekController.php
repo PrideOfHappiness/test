@@ -60,5 +60,10 @@ class MerekController extends Controller
             ->with('success', 'Merek ' . $merek['nama_merek'] . ' Berhasil DIhapus! ');
     }
 
+    public function show($id){
+        $merek = Merek::find($id);
+        return view('merek.show', compact('merek'));
+    }
+
 
 }

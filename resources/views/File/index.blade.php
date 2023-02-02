@@ -35,7 +35,7 @@
                 <td>{{ $mrk->mesin->nama_mesin}} </td>
                 <td> <img width="150px" src="{{ url('upload/mobil/'. $mrk->namaFile)}}"></td>
                 <td>
-                    <a class="badge bg-info" href="{{ route('merek.show', $mrk->id) }}"> Detail Foto </span></a>
+                    <a class="badge bg-info" href="{{ route('mobil.show', $mrk->id) }}"> Detail Foto </span></a>
                 </td>
               </tr>
             @endforeach
