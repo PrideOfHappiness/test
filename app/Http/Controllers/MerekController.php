@@ -10,7 +10,8 @@ class MerekController extends Controller
 {
     public function index(){
         $merek = Merek::orderBy('nama_merek', 'asc')->paginate(10);
-        return view('merek.index', compact('merek'));
+        $jumlahMerek = Merek::orderBy('nama_merek', 'asc')->count();
+        return view('merek.index', compact('merek', 'jumlahMerek'));
     }
 
     public function create(){
@@ -30,6 +31,33 @@ class MerekController extends Controller
 
         return redirect()->route('merek.index')
             ->with('success', 'Merek ' . $merek['nama_merek'] . ' Berhasil Ditambahkan! ');
+    }
+
+    public function edit($id){
+        $merek = Merek::find($id);
+        return view('merek.edit', compact('merek'));
+    }
+
+    public function update(Request $request, $id){
+        $merek = Merek::find($id);
+
+        $this->validate($request, [
+            'nama_merek' => 'required',
+            'negara_asal' => 'required',
+        ]);
+
+        $merek->update($request->all());
+
+        return redirect()->route('merek.index')
+            ->with('success', 'Data Merek ' . $merek['nama_merek'] . ' Berhasil Diubah! ');
+    }
+
+    public function destroy($id){
+        $merek = Merek::find($id);
+        $merek->delete();
+
+        return redirect()->route('merek.index')
+            ->with('success', 'Merek ' . $merek['nama_merek'] . ' Berhasil DIhapus! ');
     }
 
 

@@ -9,8 +9,8 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Support\Facades\Auth;
 use Validator;
 use App\Models\File;
-use App\Models\Merek;
 use App\Models\Mesin;
+use App\Models\Merek;
 use App\Models\PlatNomor;
 use Illuminate\Http\Response;
 

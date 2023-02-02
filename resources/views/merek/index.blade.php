@@ -15,11 +15,13 @@
       </div>
     @endif
 
+    Jumlah Data : {{ $jumlahMerek }} Data
     <table class="table">
             <thead>
               <tr>
                 <th>Nama Merek </th>
                 <th>Negara Asal </th>
+                <th>Action Data</th>
               </tr>
             </thead>
             <tbody>
@@ -27,6 +29,14 @@
               <tr>
                 <td>{{ $mrk->nama_merek}} </td>
                 <td>{{ $mrk->negara_asal}} </td>
+                <td>
+                    <form action = "{{ route('merek.destroy', $mrk->id) }}" method="Post">
+                        <a class="badge bg-warning" href="{{ route('merek.edit', $mrk->id) }}">Edit</span></a>
+                        @csrf
+                        @method("DELETE")
+                        <button type="submit" class="badge bg-danger"> Delete </button>
+                    </form>
+                </td>
               </tr>
             @endforeach
             </tbody>

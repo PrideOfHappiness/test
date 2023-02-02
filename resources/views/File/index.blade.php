@@ -23,6 +23,7 @@
                 <th>Plat Nomor </th>
                 <th>Mesin</th>
                 <th>Foto </th>
+                <th>Aksi Data</th>
               </tr>
             </thead>
             <tbody>
@@ -33,6 +34,9 @@
                 <td>{{ $mrk->plat_nomor->nama_negara}} </td>
                 <td>{{ $mrk->mesin->nama_mesin}} </td>
                 <td> <img width="150px" src="{{ url('upload/mobil/'. $mrk->namaFile)}}"></td>
+                <td>
+                    <a class="badge bg-info" href="{{ route('merek.show', $mrk->id) }}"> Detail Foto </span></a>
+                </td>
               </tr>
             @endforeach
             </tbody>
